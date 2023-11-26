@@ -29,16 +29,19 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;char=UTF-8");
 		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
+		String pw = request.getParameter("password");
 		if(loginHandle.login(id, pw) == 2) {
 			request.setAttribute("msg", "로그인 성공");
+			request.setAttribute("sig", 2);
 			request.getSession().setAttribute("id", id);
 		}
 		else if(loginHandle.login(id, pw) == 0){
 			request.setAttribute("msg", "아이디를 찾을 수 없습니다");
+			request.setAttribute("sig", 0);
 		}
 		else if(loginHandle.login(id, pw) == 1){
 			request.setAttribute("msg", "비밀번호가 일치하지 않습니다");
+			request.setAttribute("sig", 1);
 		}
 	}
 }
