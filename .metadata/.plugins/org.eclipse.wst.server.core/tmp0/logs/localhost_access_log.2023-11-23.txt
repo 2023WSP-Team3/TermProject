@@ -1,9 +1,0 @@
-127.0.0.1 - - [23/Nov/2023:13:59:13 +0900] "GET / HTTP/1.1" 404 807
-0:0:0:0:0:0:0:1 - - [23/Nov/2023:13:59:13 +0900] "GET /jspbook/ch08/print_tag.jsp HTTP/1.1" 200 280
-0:0:0:0:0:0:0:1 - - [23/Nov/2023:13:59:13 +0900] "GET /favicon.ico HTTP/1.1" 404 818
-0:0:0:0:0:0:0:1 - - [23/Nov/2023:13:59:27 +0900] "GET /jspbook/ch08/print_tag.jsp HTTP/1.1" 200 280
-0:0:0:0:0:0:0:1 - - [23/Nov/2023:14:04:02 +0900] "GET /jspbook/ch08/listitem_tag.jsp HTTP/1.1" 200 505
-0:0:0:0:0:0:0:1 - - [23/Nov/2023:14:04:25 +0900] "GET /jspbook/ch08/listitem_tag.jsp HTTP/1.1" 200 505
-0:0:0:0:0:0:0:1 - - [23/Nov/2023:14:04:25 +0900] "GET /jspbook/ch08/listitem_tag.jsp HTTP/1.1" 200 505
-0:0:0:0:0:0:0:1 - - [23/Nov/2023:14:26:55 +0900] "GET /jspbook/ch08/MsgTagSimple.jsp HTTP/1.1" 200 285
-0:0:0:0:0:0:0:1 - - [23/Nov/2023:14:32:54 +0900] "GET /jspbook/ch08/ItemTag.jsp HTTP/1.1" 200 463
