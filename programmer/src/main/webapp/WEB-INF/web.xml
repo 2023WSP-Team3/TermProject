@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>jspbook</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+
+  <servlet>
+    <description> 속성 관리 예제</description>
+    <display-name> PropertyServlet</display-name>
+    <servlet-name> PropertyServlet</servlet-name>
+    <servlet-class> jspbook.ch10.PropertyServlet</servlet-class>
+       <init-param>
+           <param-name>name1</param-name>
+           <param-value>user1</param-value>
+       </init-param>
+       <init-param>
+           <param-name>name2</param-name>
+           <param-value>user2</param-value>
+      </init-param>
+  </servlet>
+
+  <context-param>
+    <param-name>workspace</param-name>
+    <param-value>C:\Users\junghmin\JSP-workspace</param-value>
+  </context-param>
+  <context-param>
+    <param-name>name3</param-name>
+    <param-value>김길동</param-value>
+  </context-param>
+  
+   <context-param>
+    <param-name>encoding</param-name>
+    <param-value>utf-8</param-value>
+  </context-param> 
+
+  <context-param>
+    <param-name>profile</param-name>
+    <param-value>C:\Users\junghmin\JspCourse\conf\my.conf</param-value>
+  </context-param>
+
+</web-app>

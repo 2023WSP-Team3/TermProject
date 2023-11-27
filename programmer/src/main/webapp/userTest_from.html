@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>유저 등록</title>
+</head>
+<body>
+    <div align="center">
+        <h2>유저 등록</h2>
+        <hr>
+        <form name="form1" method="post" action="addTest.jsp">
+            <table border="1" cellspacing="1" cellpadding="5">
+                <tr>
+                    <td>유저ID</td>
+                    <td><input type="text" size="20" name="UserID" required></td>
+                </tr>
+                <tr>
+                    <td>유저이름</td>
+                    <td><input type="text" size="20" name="Username" required></td>
+                </tr>
+                <tr>
+                    <td>이메일</td>
+                    <td><input type="email" size="20" name="Email" required></td>
+                </tr>
+                <tr>
+                    <td>비밀번호</td>
+                    <td><input type="password" size="20" name="Password" required></td>
+                </tr>
+                <tr>
+                    <td>경험치</td>
+                    <td><input type="text" size="20" name="ExperiencePoint" required></td>
+                </tr>
+                <tr>
+                    <td>프로필</td>
+                    <td><input type="text" size="20" name="ProfilePicture"></td>
+                </tr>
+                <tr>
+                    <td>등록날짜</td>
+                    <td><input type="text" size="20" name="RegistrationDate" placeholder="YYYY-MM-DD HH:MI:SS" required></td>
+                </tr>
+                <tr>
+                    <td>유저상태</td>
+                    <td><input type="text" size="20" name="UserState" required></td>
+                </tr>
+                <tr>
+                    <td>로그인ID</td>
+                    <td><input type="text" size="20" name="LoginID" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" value="확인">
+                        <input type="reset" value="취소">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
