@@ -21,7 +21,8 @@
         </header>
         <hr style="margin: 0px;">
         <div class="login-form">
-            <form method=post name=login action="Login"> PRO: GRAMMAR </h1>
+            <form method=post name=login action="Login">
+            	<h1 class="programmar" style="font-size: 60px; text-align: center;">PRO: GRAMMAR </h1>
                 <input type="text" name="id" class="text-field" placeholder="아이디">
                 <input type="password" name="password" class="text-field" placeholder="비밀번호">
                 <input type="submit" value="SIGN IN" class="submit-btn">
