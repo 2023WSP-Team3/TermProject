@@ -1,0 +1,17 @@
+.main-banner {
+    background-color: #00C3B2;
+    height: 400px;
+    display: flex;
+    align-items: center;
+}
+
+.sub-banner {
+    display: flex;
+    align-items: center;
+}
+
+.main-nav {
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+}

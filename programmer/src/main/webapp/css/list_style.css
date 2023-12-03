@@ -1,0 +1,13 @@
+.main-form {
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+}
+
+.sidebar-form {
+    width: 300px;
+}
+
+.list-form {
+    flex: 1;
+}
