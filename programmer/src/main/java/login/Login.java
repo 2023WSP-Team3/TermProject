@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.RequestDispatcher;
 
 import login.CheckMember;
 import login.GetMember;
@@ -32,17 +33,17 @@ public class Login extends HttpServlet {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("password");
 		if(loginHandle.login(id, pw) == 2) {
-			request.setAttribute("msg", "로그인 성공");
-			request.setAttribute("sig", 2);
+			RequestDispatcher view = request.getRequestDispatcher("/main.html");
+			view.forward(request,  response);
 			request.getSession().setAttribute("id", id);
 		}
 		else if(loginHandle.login(id, pw) == 0){
-			request.setAttribute("msg", "아이디를 찾을 수 없습니다");
-			request.setAttribute("sig", 0);
+			response.sendRedirect("/login.html");
+			request.setAttribute("err_msg", "아이디를 찾을 수 없습니다");
 		}
 		else if(loginHandle.login(id, pw) == 1){
-			request.setAttribute("msg", "비밀번호가 일치하지 않습니다");
-			request.setAttribute("sig", 1);
+			response.sendRedirect("/login.html");
+			request.setAttribute("err_msg", "비밀번호가 일치하지 않습니다");
 		}
 	}
 }

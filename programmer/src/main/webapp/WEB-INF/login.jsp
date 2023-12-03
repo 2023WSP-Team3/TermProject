@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
         <meta charset="UTF-8">
@@ -18,7 +20,7 @@
         </header>
         <hr style="margin: 0px;">
         <div class="login-form">
-            <form method=post name=login action="">
+            <form method=post name=login action="/Login">
                 <h1 class="programmar" style="font-size: 60px; text-align: center;"> PRO: GRAMMAR </h1>
                 <input type="text" name="id" class="text-field" placeholder="아이디">
                 <input type="password" name="password" class="text-field" placeholder="비밀번호">
@@ -27,6 +29,15 @@
                     <a href="signup.html">SIGN UP</a>
                 </div>
             </form>
+        </div>
+        <div class="text-field" style="color : red">
+        	<%
+        		String err_msg = (String)session.getAttribute("err_msg");
+        		if(err_msg==null) err_msg = "";
+        		
+        		session.invalidate();
+        	%>
+        	<%=err_msg %>
         </div>
     </body>
 </html>
