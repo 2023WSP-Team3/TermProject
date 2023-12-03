@@ -13,7 +13,7 @@ public class UserDAO {
 	void connect() {
 		try {
 			Class.forName(jdbc_driver);
-			conn = DriverManager.getConnection(jdbc_url, "jspbook", "7280plem");
+			conn = DriverManager.getConnection(jdbc_url, "jspbook", "passwd");
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -83,6 +83,7 @@ public class UserDAO {
 				
 				userList.add(ab);
 			}
+			
 			rs.close();
 		} catch(SQLException e) {
 			e.printStackTrace();
@@ -92,7 +93,5 @@ public class UserDAO {
 		return userList;
 		
 	}
-	
-	
 
 }

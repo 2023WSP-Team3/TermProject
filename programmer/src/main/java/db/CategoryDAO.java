@@ -18,7 +18,7 @@ public class CategoryDAO {
 	void connect() {
 		try {
 			Class.forName(jdbc_driver);
-			conn = DriverManager.getConnection(jdbc_url, "jspbook", "7280plem");
+			conn = DriverManager.getConnection(jdbc_url, "jspbook", "passwd");
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
