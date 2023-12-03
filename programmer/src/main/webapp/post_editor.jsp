@@ -17,7 +17,7 @@
             </header-login-container>
         </header>
         <hr style="margin: 0px;">
-        <form class="editor-form" name="post" action="" method="post">
+        <form class="editor-form" name="post" action="AddPost" method="post">
             <div>
                 <h1>포스트 제목</h1>
                 <input class="text-field" name="title" type="text" placeholder="제목을 입력해주세요."></br>

@@ -27,10 +27,10 @@ public class PostVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Date getPossDate() {
+	public Date getPostDate() {
 		return possDate;
 	}
-	public void setPossDate(Date possDate) {
+	public void setPostDate(Date possDate) {
 		this.possDate = possDate;
 	}
 	public int getCategoryId() {

@@ -1,4 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<jsp:useBean id="postDAO" class="java.db.PostDAO" scope="application"/>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -22,14 +25,14 @@
                 <h1 style="font-size: 40px">사이드바</h1>
                 <ul>
                     <li><a href="question_list.html" style="text-decoration-line: none; color: inherit;"><h2>질문게시판</h2></a></li>
-                    <li><a href="general_list.html" style="text-decoration-line: none; color: inherit;"><h2>일반게시판</h2></a></li>
-                    <li><a href="info_list.html" style="text-decoration-line: none; color: #00C3B2;"><h2>정보게시판</h2></a></li>
+                    <li><a href="general_list.html" style="text-decoration-line: none; color: #00C3B2;"><h2>일반게시판</h2></a></li>
+                    <li><a href="info_list.html" style="text-decoration-line: none; color: inherit;"><h2>정보게시판</h2></a></li>
                 </ul>
             </div>
             <div class="list-form">
-                <h1 style="margin-bottom: 0%;">정보게시판</h1>
+                <h1 style="margin-bottom: 0%;">일반게시판</h1>
                 <b style="margin-top: 0%; color: #888888;"><br></b>
-                <form action="info_list.html?" mehtod="GET">
+                <form action="general_list.html?" mehtod="GET">
                     <input type="text" name="search">
                 </form>
                 <hr style="margin: 20px 0px;">
@@ -41,6 +44,21 @@
                     <b style="flex: 2; text-align: center; color: #666666">작성일</b>
                     <b style="flex: 2; text-align: center; color: #666666">조회</b>
                 </div>
+                <%
+					for(PostVO vo:postDAO.getPostList()) {
+				%>
+						<hr>
+		                <div style="display: flex;">
+		                    <div style="flex: 2;"></div>
+		                    <b style="flex: 10; text-align: center; color: #666666;"><%vo.getTitle()%></b>
+		                    <b style="flex: 2; text-align: center; color: #666666">언어</b>
+		                    <b style="flex: 2; text-align: center; color: #666666"><%vo.getUserId()%></b>
+		                    <b style="flex: 2; text-align: center; color: #666666"><%vo.getPossDate()%></b>
+		                    <b style="flex: 2; text-align: center; color: #666666">조회수</b>
+		                </div>
+                <%
+					}
+				%>
             </div>
         </div>
     </body>
