@@ -19,4 +19,14 @@ public class CheckMember {
 				return 1;
 		}
 	}
+	
+	public int nameCheck(String name) {
+		boolean getname = userList.checkName(name); // name 중복검사 중복이면 true, 아니면 false를 반환
+		if (getname) {
+			return 0; // 중복
+		}
+		else {
+			return 1;
+		}
+	}
 }

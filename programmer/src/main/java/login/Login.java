@@ -34,15 +34,15 @@ public class Login extends HttpServlet {
 		String pw = request.getParameter("password");
 		if(loginHandle.login(id, pw) == 2) {
 			request.getSession().setAttribute("id", id);
-			RequestDispatcher view = request.getRequestDispatcher("src/main/webapp/main.html");
+			RequestDispatcher view = request.getRequestDispatcher("main.html");
 			view.forward(request,  response);
 		}
 		else if(loginHandle.login(id, pw) == 0){
-			response.sendRedirect("src/main/webapp/login.jsp");
+			response.sendRedirect("login.jsp");
 			request.setAttribute("err_msg", "아이디를 찾을 수 없습니다");
 		}
 		else if(loginHandle.login(id, pw) == 1){
-			response.sendRedirect("src/main/webapp/login.jsp");
+			response.sendRedirect("login.jsp");
 			request.setAttribute("err_msg", "비밀번호가 일치하지 않습니다");
 		}
 	}
