@@ -22,7 +22,18 @@
         <form class="editor-form" name="post" action="AddPost" method="post">
             <div>
                 <h1>포스트 제목</h1>
-                <input class="text-field" name="title" type="text" placeholder="제목을 입력해주세요."></br>
+                	<%
+						if (request.getParameter("isEdit").compareTo("true") == 0) {
+					%>
+					<input class="text-field" name="title" type="text" placeholder="제목을 입력해주세요." value="<%=session.getAttribute("postTitle")%>"></br>
+					<%
+						}
+						else {
+					%>
+					<input class="text-field" name="title" type="text" placeholder="제목을 입력해주세요."></br>
+					<%
+						}
+					%>
                 <div style="display: flex">
                     <div style="flex: 1">
                         <h1>게시판 선택</h1>
@@ -42,9 +53,31 @@
                     </div>
                 </div>
                 <h1>포스트 내용</h1>
-                <textarea class="text-field" name="content" placeholder="본문 내용을 입력해주세요." style="height: 400px"></textarea>
+                	<%
+						if (request.getParameter("isEdit").compareTo("true") == 0) {
+					%>
+                	<textarea class="text-field" name="content" placeholder="본문 내용을 입력해주세요." style="height: 400px"><%=session.getAttribute("postContent")%></textarea>
+					<%
+						}
+						else {
+					%>
+					<textarea class="text-field" name="content" placeholder="본문 내용을 입력해주세요." style="height: 400px"></textarea>
+					<%
+						}
+					%>
                 <h1>코드</h1>
-                <textarea class="text-field" name="code_content" placeholder="본문 내용을 입력해주세요." style="height: 200px"></textarea>
+                	<%
+						if (request.getParameter("isEdit").compareTo("true") == 0 && session.getAttribute("postCodeContent") != "") {
+					%>
+                	<textarea class="text-field" name="code_content" placeholder="본문 내용을 입력해주세요." style="height: 200px"><%=session.getAttribute("postCodeContent")%></textarea>
+					<%
+						}
+						else {
+					%>
+					<textarea class="text-field" name="code_content" placeholder="본문 내용을 입력해주세요." style="height: 200px"></textarea>
+					<%
+						}
+					%>
                 <button class="submit-btn" value="UPLOAD POST" type="submit"><b>포스트 업로드</b></button>
             </div>
         </form>
