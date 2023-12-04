@@ -19,7 +19,18 @@
             </header-login-container>
         </header>
         <hr style="margin: 0px;">
+        <%
+			if (request.getParameter("isEdit").compareTo("true") == 0) {
+		%>
+        <form class="editor-form" name="post" action="RetuchPost" method="post">
+		<%
+			}
+			else {
+		%>
         <form class="editor-form" name="post" action="AddPost" method="post">
+		<%
+			}
+		%>
             <div>
                 <h1>포스트 제목</h1>
                 	<%

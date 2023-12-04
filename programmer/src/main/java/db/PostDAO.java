@@ -105,7 +105,7 @@ public class PostDAO {
 	
 	public void update (String title, String content, Date postDate, String Lang, String CodeContent, int postId) {
 		connect();
-	    String sql = "UPDATE post SET Title = ? AND Content = ? AND PostDate = ? AND Lang = ? AND CodeContent = ? WHERE PostId = ?";
+	    String sql = "UPDATE post SET Title = ?, Content = ?, PossDate = ?, Lang = ?, CodeContent = ? WHERE PostId = ?";
 	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
 	        pstmt.setString(1, title);
 	        pstmt.setString(2, content);

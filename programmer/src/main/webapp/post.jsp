@@ -65,6 +65,7 @@
 	                for(PostVO pvo:postDAO.getPostList()) {
 	                	if (pvo.getPostId() != Integer.parseInt(request.getParameter("postId")))
 	                		continue;
+	                	session.setAttribute("postId", pvo.getPostId());
 	                	session.setAttribute("postTitle", pvo.getTitle().toString());
 	                	session.setAttribute("postContent", pvo.getContent().toString());
 	                	if (pvo.getCodeContent() != null)

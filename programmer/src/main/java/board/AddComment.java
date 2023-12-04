@@ -58,7 +58,7 @@ public class AddComment extends HttpServlet {
      
         adao.add(avo);
         
-        RequestDispatcher view = request.getRequestDispatcher("post.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("post.jsp?postId="+avo.getPostId()+"&category=1");
 		view.forward(request,  response);
 	}
 

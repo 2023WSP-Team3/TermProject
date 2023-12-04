@@ -43,7 +43,7 @@ public class RetuchPost extends HttpServlet {
 		PostDAO dao = new PostDAO();
 		dao.update(title, content, currentDate, lang, code_content, postId);
 		
-		RequestDispatcher view = request.getRequestDispatcher("post.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("post.jsp?postId="+postId+"&category=1");
 		view.forward(request,  response);
 	}
 
