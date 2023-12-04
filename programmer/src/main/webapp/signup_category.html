@@ -1,4 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+	if (session.getAttribute("loginId") != null) {
+		session.removeAttribute("loginId");
+		session.removeAttribute("userId");
+		response.sendRedirect("main.jsp");
+	}
+%>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -6,14 +15,18 @@
         <link rel="stylesheet" href="css/public_style.css">
         <link href="https://fonts.googleleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Koulen' rel='stylesheet'>
-        <title>PRO:GRAMMAR 로그인</title>
+        <title>PRO:GRAMMAR</title>
     </head>
     <body>
         <header>
             <a href="main.html" class="programmar" style="font-size: 30px; flex: 160px;">PRO: GRAMMAR</a>
             <div style="flex: 1"></div>
             <header-login-container>
-                <div class=header-login><a href="login.jsp" style="text-decoration-line: none; color: inherit;">로그인</a></div>
+                <div class=header-login>
+	                <a href="login.jsp" style="text-decoration-line: none; color: inherit;">
+	                	로그인
+	                </a>
+                </div>
             </header-login-container>
         </header>
         <hr style="margin: 0px;">
