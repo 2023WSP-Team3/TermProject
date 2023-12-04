@@ -7,13 +7,13 @@ public class UserDAO {
 	PreparedStatement pstmt = null;
 	String jdbc_driver = "com.mysql.cj.jdbc.Driver";
 	String jdbc_url = 
-"jdbc:mysql://localhost/web?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding="
+"jdbc:mysql://localhost/webdata?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding="
 + "utf8&useSSL=false&serverTimezone=UTC";
 	
 	void connect() {
 		try {
 			Class.forName(jdbc_driver);
-			conn = DriverManager.getConnection(jdbc_url, "jspbook", "7280plem");
+			conn = DriverManager.getConnection(jdbc_url, "jspbook", "passwd");
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -38,7 +38,7 @@ public class UserDAO {
 	
 	public void add(UserVO ab) {
 		connect();
-		String sql = "insert into user values(?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into user values (?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -83,6 +83,7 @@ public class UserDAO {
 				
 				userList.add(ab);
 			}
+			
 			rs.close();
 		} catch(SQLException e) {
 			e.printStackTrace();
@@ -92,7 +93,5 @@ public class UserDAO {
 		return userList;
 		
 	}
-	
-	
 
 }
