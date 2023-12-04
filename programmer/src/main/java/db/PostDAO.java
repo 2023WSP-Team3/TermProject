@@ -100,6 +100,21 @@ public class PostDAO {
 			disconnect();
 		}
 		return postList;
-			
+	}
+	
+	public void view_update(int value, int postId) {
+		connect();
+	    String sql = "UPDATE post SET Views = ? WHERE PostId = ?";
+	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+	        pstmt.setInt(1, value);
+	        pstmt.setInt(2, postId);
+
+	        pstmt.executeUpdate();
+	    } catch (SQLException e) {
+	        // 예외를 적절히 처리하세요 (로깅 또는 다시 던지기)
+	        e.printStackTrace();
+	    } finally {
+	        disconnect();
+	    }
 	}
 }
