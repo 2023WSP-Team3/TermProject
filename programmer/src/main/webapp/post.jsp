@@ -15,7 +15,7 @@
     </head>
     <body>
         <header>
-            <a href="main.html" class="programmar" style="font-size: 30px; flex: 160px;">PRO: GRAMMAR</a>
+            <a href="main.jsp" class="programmar" style="font-size: 30px; flex: 160px;">PRO: GRAMMAR</a>
             <div style="flex: 1"></div>
             <header-login-container>
                 <div class=header-login>
@@ -35,9 +35,29 @@
             <div class="sidebar-form">
                 <h1 style="font-size: 40px">사이드바</h1>
                 <ul>
+                	<%
+                		if (Integer.parseInt(request.getParameter("category")) == 1) {
+                	%>
                     <li><a href="question_list.jsp" style="text-decoration-line: none; color: #00C3B2;"><h2>질문게시판</h2></a></li>
                     <li><a href="general_list.jsp" style="text-decoration-line: none; color: inherit;"><h2>일반게시판</h2></a></li>
                     <li><a href="info_list.jsp" style="text-decoration-line: none; color: inherit;"><h2>정보게시판</h2></a></li>
+                    <%
+                		}
+                		else if (Integer.parseInt(request.getParameter("category")) == 2) {
+                    %>
+                    <li><a href="question_list.jsp" style="text-decoration-line: none; color: inherit;"><h2>질문게시판</h2></a></li>
+                    <li><a href="general_list.jsp" style="text-decoration-line: none; color: #00C3B2;"><h2>일반게시판</h2></a></li>
+                    <li><a href="info_list.jsp" style="text-decoration-line: none; color: inherit;"><h2>정보게시판</h2></a></li>
+                    <%
+                		}
+                		else if (Integer.parseInt(request.getParameter("category")) == 3) {
+                    %>
+                    <li><a href="question_list.jsp" style="text-decoration-line: none; color: inherit;"><h2>질문게시판</h2></a></li>
+                    <li><a href="general_list.jsp" style="text-decoration-line: none; color: inherit;"><h2>일반게시판</h2></a></li>
+                    <li><a href="info_list.jsp" style="text-decoration-line: none; color: #00C3B2;"><h2>정보게시판</h2></a></li>
+                    <%
+                		}
+                    %>
                 </ul>
             </div>
             <div class="list-form">
@@ -61,6 +81,16 @@
                 <div style="display: flex">
                     <div style="flex: 1;"></div>
                     <a href="question_list.html" style="text-align: center;">
+	                	<%
+	                		if (session.getAttribute("userId") != null) {
+	                			if(Integer.parseInt(session.getAttribute("userId").toString()) == pvo.getUserId()) {
+	                	%>
+	                	<button class="small-btn" type="button" onclick="location.href='post_editor.html?isEdit=true'" style="margin-right: 10px;">수정</button>
+	                    <button class="small-btn" type="button" onclick="location.href='post_editor.html'" style="margin-right: 10px; background-color: #ff5252;">삭제</button>
+	                    <%
+	                			}
+	                		}
+	                    %>
                         <img src="https://media.discordapp.net/attachments/957541344832790609/1181286222413451374/image.png?ex=65808186&is=656e0c86&hm=acec74f87f33b3e7342f321ee15058c90db8d56b950067da544f4589436a53c5&=&format=webp&quality=lossless" style="max-width: 20px; height: auto">
                     </a>
                 </div>
@@ -86,7 +116,7 @@
                 </form>
                 <hr>
                 <div>
-                <%					
+                <%
 	                for(CommentVO cvo:commentDAO.getCommentList()) {
 	                	if (cvo.getPostId() != pvo.getPostId())
 	                		continue;
