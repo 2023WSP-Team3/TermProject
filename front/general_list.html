@@ -13,7 +13,7 @@
             <a href="main.html" class="programmar" style="font-size: 30px; flex: 160px;">PRO: GRAMMAR</a>
             <div style="flex: 1"></div>
             <header-login-container>
-                <div class=header-login><a href="login_category.html" style="text-decoration-line: none; color: inherit;">로그인</a></div>
+                <div class=header-login><a href="login.html" style="text-decoration-line: none; color: inherit;">로그인</a></div>
             </header-login-container>
         </header>
         <hr style="margin: 0px;">
@@ -27,6 +27,23 @@
                 </ul>
             </div>
             <div class="list-form">
+                <h1 style="margin-bottom: 0%;">일반게시판</h1>
+                <b style="margin-top: 0%; color: #888888;"><br></b>
+                <div style="display: flex;">
+                    <form action="general_list.html?" mehtod="GET" style="flex: 1;">
+                        <input type="text" name="search" style="vertical-align: middle;">
+                    </form>
+                    <button class="small-btn" type="button" onclick="location.href='post_editor.html'">게시글 작성</button>
+                </div>
+                <hr style="margin: 20px 0px;">
+                <div style="display: flex;">
+                    <div style="flex: 2;"></div>
+                    <b style="flex: 10; text-align: center; color: #666666;">제목</b>
+                    <b style="flex: 2; text-align: center; color: #666666">언어</b>
+                    <b style="flex: 2; text-align: center; color: #666666">작성자</b>
+                    <b style="flex: 2; text-align: center; color: #666666">작성일</b>
+                    <b style="flex: 2; text-align: center; color: #666666">조회</b>
+                </div>
             </div>
         </div>
     </body>
