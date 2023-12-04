@@ -78,7 +78,7 @@
 		                    	%>
 	                    		</b>
 		                    </div>
-		                    <a href="post.jsp?<%=vo.getPostId()%>" style="flex: 10; text-align: center; color: #666666;">
+		                    <a href="post.jsp?postId=<%=vo.getPostId()%>" style="flex: 10; text-align: center; color: #666666;">
 		                    	<b><%=vo.getTitle()%></b>
 		                    </a>
 		                    <b style="flex: 2; text-align: center; color: #666666"><%=vo.getLang() %>></b>

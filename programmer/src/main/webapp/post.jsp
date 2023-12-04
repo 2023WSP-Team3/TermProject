@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="db.*"%>
 <!DOCTYPE html>
+<jsp:useBean id="commentDAO" class="db.CommentDAO" scope="application"/>
+<jsp:useBean id="postDAO" class="db.PostDAO" scope="application"/>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -30,32 +32,42 @@
                 </ul>
             </div>
             <div class="list-form">
+                <%					
+	                for(PostVO pvo:postDAO.getPostList()) {
+	                	if (pvo.getPostId() != Integer.parseInt(request.getParameter("postId")))
+	                		continue;
+				%>
                 <div style="display: flex;">
                     <h1 style="font-size: 40px; color: #00C3B2;margin-right: 10px;">Q.</h1>
-                    <h1 style="font-size: 40px;">f.write(f"{word}: {mean}\n") 대신 print문</h1>
+                    <h1 style="font-size: 40px;"><%=pvo.getTitle()%></h1>
                 </div>
-                <div style="display: flex;">
+                <div style="display: flex; align-items: center;">
                     <img src="https://media.discordapp.net/attachments/957541344832790609/1180447214741508116/image.png?ex=657d7423&is=656aff23&hm=71a44926ad410d3e32f629da48b635bf1241a14cd2ba598b4d7bd8940252b39e&=&format=webp&quality=lossless" style="max-width: 80px; height: auto">
                     <div style="margin-left: 10px;">
-                        <div style="height: 50%; align-items: center; display: flex;">
-                            <b style="margin-right: 5px">글쓴이</b>
-                            <b style="margin-right: 5px">닉네임</b>
-                            <b style="margin-right: 5px">뱃지</b>
-                        </div>
-                        <div style="height: 50%; align-items: center;">
-                            별 개수
+                        <div style="height: 50%; display: flex;">
+                            <b style="margin-right: 5px"><%=pvo.getName()%></b>
                         </div>
                     </div>
                 </div>
+                <div style="display: flex">
+                    <div style="flex: 1;"></div>
+                    <a href="question_list.html" style="text-align: center;">
+                        <img src="https://media.discordapp.net/attachments/957541344832790609/1181286222413451374/image.png?ex=65808186&is=656e0c86&hm=acec74f87f33b3e7342f321ee15058c90db8d56b950067da544f4589436a53c5&=&format=webp&quality=lossless" style="max-width: 20px; height: auto">
+                    </a>
+                </div>
                 <hr>
                 <div style="font-size: 20px;">
-                    안녕하세요<br>
-                    김얍몽입니다<br>
+                	<%=pvo.getContent()%>
                 </div>
+                <%
+                	if (pvo.getCodeContent() != null) {
+                %>
                 <div class="code-block">
-                    awqerba<br>
-                    awergb<br>
+                	<%=pvo.getCodeContent()%>
                 </div>
+                <%
+                	}
+                %>
                 <hr>
                 <form name="comment" action="AddComment" method="post">
                     <h1 style="font-size: 30px; margin-right: 10px;">댓글 작성</h1>
@@ -64,7 +76,34 @@
                 </form>
                 <hr>
                 <div>
-
+                <%					
+	                for(CommentVO cvo:commentDAO.getCommentList()) {
+	                	if (cvo.getPostId() != pvo.getPostId())
+	                		continue;
+				%>
+					<div style="display: flex; align-items: center;">
+	                    <img src="https://media.discordapp.net/attachments/957541344832790609/1180447214741508116/image.png?ex=657d7423&is=656aff23&hm=71a44926ad410d3e32f629da48b635bf1241a14cd2ba598b4d7bd8940252b39e&=&format=webp&quality=lossless" style="max-width: 80px; height: auto">
+	                    <div style="margin-left: 10px;">
+	                        <div style="height: 50%; display: flex;">
+	                            <b style="margin-right: 5px"><%=cvo.getUserName()%></b>
+	                            <b style="margin-right: 5px"></b>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div style="display: flex">
+	                    <div style="flex: 1;"></div>
+	                    <a href="question_list.html" style="text-align: center;">
+	                        <img src="https://media.discordapp.net/attachments/957541344832790609/1181286222413451374/image.png?ex=65808186&is=656e0c86&hm=acec74f87f33b3e7342f321ee15058c90db8d56b950067da544f4589436a53c5&=&format=webp&quality=lossless" style="max-width: 20px; height: auto">
+	                    </a>
+	                </div>
+	                <div style="font-size: 20px;">
+	                	<%=cvo.getCommentText()%>
+	                </div>
+					<hr>
+                <%
+						}
+	                }
+				%>
                 </div>
             </div>
         </div>
