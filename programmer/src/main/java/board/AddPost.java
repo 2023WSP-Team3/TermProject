@@ -44,12 +44,16 @@ public class AddPost extends HttpServlet {
 		int userId = (int)session.getAttribute("userId");
 		String selectedCategory = request.getParameter("category");
 		int categoryValue = 0;
+		String addr = "";
 	    if ("question".equals(selectedCategory)) {
 	        categoryValue = 1;
+	        addr = "question_list.jsp";
 	    } else if ("normal".equals(selectedCategory)) {
 	        categoryValue = 2;
+	        addr = "general_list.jsp";
 	    } else if ("information".equals(selectedCategory)) {
 	        categoryValue = 3;
+	        addr = "info_list.jsp";
 	    }
         pvo.setPostId(postId);
         pvo.setUserId(userId);
@@ -57,11 +61,12 @@ public class AddPost extends HttpServlet {
         pvo.setContent(request.getParameter("content"));
         pvo.setPostDate(currentDate);
         pvo.setCategoryId(categoryValue);
-
+        pvo.setViews(0);
+        pvo.setReport(0);
+        
         pdao.add(pvo);
         
-        session.setAttribute("postId", postId);
-        RequestDispatcher view = request.getRequestDispatcher("general_list.jsp");
+        RequestDispatcher view = request.getRequestDispatcher(addr);
         view.forward(request,  response);
 	}
 }
