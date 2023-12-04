@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="db.*" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,14 +8,23 @@
         <link rel="stylesheet" href="css/public_style.css">
         <link href="https://fonts.googleleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Koulen' rel='stylesheet'>
-        <title>PRO:GRAMMAR 로그인</title>
+        <title>PRO:GRAMMAR</title>
     </head>
     <body>
         <header>
             <a href="main.html" class="programmar" style="font-size: 30px; flex: 160px;">PRO: GRAMMAR</a>
             <div style="flex: 1"></div>
             <header-login-container>
-                <div class=header-login><a href="login.jsp" style="text-decoration-line: none; color: inherit;">로그인</a></div>
+                <div class=header-login>
+	                <a href="login.jsp" style="text-decoration-line: none; color: inherit;">
+	                	<%
+							if (session.getAttribute("loginId") == null)
+								out.println("로그인");
+							else
+								out.println("로그아웃");
+						%>
+	                </a>
+                </div>
             </header-login-container>
         </header>
         <hr style="margin: 0px;">
@@ -21,7 +32,7 @@
             <div style="margin-left: 10%; margin-right: 10%; vertical-align: middle;">
                 <p style="color: #FFFFFF; font-size: 80px; font-family: 'Koulen', sans-serif; margin: 0px;">PRO: GRAMMAR</p>
                 <p style="color: #FFFFFF; font-size: 40px; margin: 0px;">코드 문법의 전문가로 향하는</p>
-                <p style="color: #FFFFFF; font-size: 40px; margin: 0px;">우리 모두의 경유지</p>
+                <p style="color: #FFFFFF; font-size: 40px; margin: 0px;">우리 모두의 경유지</p>
             </div>
         </div>
         <div class="sub-banner">
