@@ -29,15 +29,15 @@
                     <a href="signup_category.html">SIGN UP</a>
                 </div>
             </form>
-        </div>
-        	<%
+            <%
         		String err_msg = (String)session.getAttribute("err_msg");
         		if(err_msg==null) err_msg = "";
         		
         		session.invalidate();
         	%>
-        <div id="err_msg" class="text-fielr" style="color : red">
-        	<%=err_msg %>
+        	<div id="err_msg" class="text-fielr" style="color : red">
+        		<%=err_msg %>
+        	</div>
         </div>
     </body>
 </html>

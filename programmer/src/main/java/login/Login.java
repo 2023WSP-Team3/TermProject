@@ -42,12 +42,18 @@ public class Login extends HttpServlet {
 			view.forward(request,  response);
 		}
 		else if(loginHandle.login(id, pw) == 0){
+			HttpSession session = request.getSession();
+			String err_msg = "아이디를 찾을 수 없습니다";
+			session.setAttribute("err_msg", err_msg);
+			
 			response.sendRedirect("login.jsp");
-			request.setAttribute("err_msg", "아이디를 찾을 수 없습니다");
 		}
 		else if(loginHandle.login(id, pw) == 1){
+			HttpSession session = request.getSession();
+			String err_msg = "비밀번호가 일치하지 않습니다";
+			session.setAttribute("err_msg", err_msg);
+			
 			response.sendRedirect("login.jsp");
-			request.setAttribute("err_msg", "비밀번호가 일치하지 않습니다");
 		}
 	}
 }
