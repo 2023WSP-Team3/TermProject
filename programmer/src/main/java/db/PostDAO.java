@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.servlet.http.HttpSession;
 
 public class PostDAO {
 	Connection conn = null;
@@ -111,10 +112,10 @@ public class PostDAO {
 
 	        pstmt.executeUpdate();
 	    } catch (SQLException e) {
-	        // 예외를 적절히 처리하세요 (로깅 또는 다시 던지기)
 	        e.printStackTrace();
 	    } finally {
 	        disconnect();
 	    }
 	}
+	
 }

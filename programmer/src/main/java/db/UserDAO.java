@@ -93,5 +93,26 @@ public class UserDAO {
 		return userList;
 		
 	}
+	public String search_user(int userId) {
+	    connect();
+	    String name = null;
+
+	    String sql = "SELECT Username FROM user WHERE UserId = ?";
+
+	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+	        pstmt.setInt(1, userId);
+
+	        ResultSet rs = pstmt.executeQuery();
+	        if (rs.next()) {
+	            name = rs.getString("Username");
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        disconnect();
+	    }
+
+	    return name;
+	}
 
 }

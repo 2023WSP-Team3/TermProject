@@ -44,15 +44,18 @@ public class AddComment extends HttpServlet {
 		java.sql.Date currentDate = new java.sql.Date(System.currentTimeMillis());
 		HttpSession session = request.getSession();
 		int userId = (int)session.getAttribute("userId");
-		String username = (String)session.getAttribute("name");
-		int postId = (int)session.getAttribute("postId"); // 변경필요
+		UserDAO udao = new UserDAO();
+		String username = udao.search_user(userId);
+		
+		int postId = (int)session.getAttribute("postId");
+		
 		avo.setCommentId(commentId);
-        avo.setPostId(1);
+        avo.setPostId(postId);
         avo.setUserId(userId);
         avo.setCommentText(request.getParameter("cmt_content"));
         avo.setCommentDate(currentDate);
         avo.setUserName(username);
-        
+     
         adao.add(avo);
         
         RequestDispatcher view = request.getRequestDispatcher("post.jsp");
