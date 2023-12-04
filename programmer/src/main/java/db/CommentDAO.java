@@ -13,13 +13,13 @@ public class CommentDAO {
 	PreparedStatement pstmt = null;
 	String jdbc_driver = "com.mysql.cj.jdbc.Driver";
 	String jdbc_url = 
-"jdbc:mysql://localhost/web?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding="
+"jdbc:mysql://localhost/webdata?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding="
 + "utf8&useSSL=false&serverTimezone=UTC";
 	
 	void connect() {
 		try {
 			Class.forName(jdbc_driver);
-			conn = DriverManager.getConnection(jdbc_url, "jspbook", "7280plem");
+			conn = DriverManager.getConnection(jdbc_url, "jspbook", "passwd");
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -44,7 +44,7 @@ public class CommentDAO {
 	
 	public void add(CommentVO ab) {
 		connect();
-		String sql = "insert into comment values(?,?,?,?,?)";
+		String sql = "insert into comment values(?,?,?,?,?,?)";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -53,6 +53,7 @@ public class CommentDAO {
 			pstmt.setInt(3,  ab.getUserId());
 			pstmt.setString(4,  ab.getCommentText());
 			pstmt.setDate(5,  (Date) ab.getCommentDate());
+			pstmt.setString(6, ab.getUserName());
 			
 			pstmt.executeUpdate();
 			
@@ -78,7 +79,7 @@ public class CommentDAO {
 				ab.setUserId(rs.getInt("UserID"));
 				ab.setCommentText(rs.getString("CommentText"));
 				ab.setCommentDate(rs.getDate("CommentDate"));
-				
+				ab.setUserName(rs.getString("Username"));
 				
 				commentList.add(ab);
 			}

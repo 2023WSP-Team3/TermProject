@@ -13,13 +13,13 @@ public class PostDAO {
 	PreparedStatement pstmt = null;
 	String jdbc_driver = "com.mysql.cj.jdbc.Driver";
 	String jdbc_url = 
-"jdbc:mysql://localhost/web?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding="
+"jdbc:mysql://localhost/webdata?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding="
 + "utf8&useSSL=false&serverTimezone=UTC";
 	
 	void connect() {
 		try {
 			Class.forName(jdbc_driver);
-			conn = DriverManager.getConnection(jdbc_url, "jspbook", "7280plem");
+			conn = DriverManager.getConnection(jdbc_url, "jspbook", "passwd");
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -44,7 +44,7 @@ public class PostDAO {
 	
 	public void add(PostVO ab) {
 		connect();
-		String sql = "insert into post values(?,?,?,?,?,?)";
+		String sql = "insert into post values (?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -52,8 +52,12 @@ public class PostDAO {
 			pstmt.setInt(2,  ab.getUserId());
 			pstmt.setString(3, ab.getTitle());
 			pstmt.setString(4,  ab.getContent());
-			pstmt.setDate(5,  (Date) ab.getPossDate());
+			pstmt.setDate(5,  (Date) ab.getPostDate());
 			pstmt.setInt(6, ab.getCategoryId());
+			pstmt.setInt(7, ab.getViews());
+			pstmt.setInt(8, ab.getReport());
+			pstmt.setString(9, ab.getLang());
+			pstmt.setString(10, ab.getCodeContent());
 			
 			pstmt.executeUpdate();
 			
@@ -78,8 +82,12 @@ public class PostDAO {
 				ab.setUserId(rs.getInt("UserID"));
 				ab.setTitle(rs.getString("Title"));
 				ab.setContent(rs.getString("Content"));
-				ab.setPossDate(rs.getDate("PossDate"));
+				ab.setPostDate(rs.getDate("PossDate"));
 				ab.setCategoryId(rs.getInt("CategoryID"));
+				ab.setViews(rs.getInt("Views"));
+				ab.setReport(rs.getInt("Report"));
+				ab.setLang(rs.getString("Lang"));
+				ab.setCodeContent(rs.getString("CodeContent"));
 				
 				postList.add(ab);
 			}

@@ -1,2 +1,6 @@
 eclipse.preferences.version=1
+encoding//src/main/webapp/general_list.jsp=UTF-8
+encoding//src/main/webapp/info_list.jsp=UTF-8
+encoding//src/main/webapp/post_editor.jsp=UTF-8
+encoding//src/main/webapp/question_list.jsp=UTF-8
 encoding/<project>=UTF-8

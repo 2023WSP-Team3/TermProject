@@ -78,6 +78,16 @@ ul {
     width: 100%;
 }
 
+.small-btn {
+    background-color: #00C3B2;
+    width: auto;
+    border: none;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-size: 16px;
+    padding: 5px;
+}
+
 .links {
     text-align: right;
 }

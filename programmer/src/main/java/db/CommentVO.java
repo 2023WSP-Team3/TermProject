@@ -33,10 +33,17 @@ public class CommentVO {
 	public void setCommentDate(Date commentDate) {
 		this.commentDate = commentDate;
 	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 	private int commentId;
 	private int postId;
 	private int userId;
 	private String commentText;
 	private Date commentDate;
+	private String userName;
 
 }
