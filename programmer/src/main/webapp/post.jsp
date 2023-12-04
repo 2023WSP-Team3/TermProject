@@ -18,7 +18,16 @@
             <a href="main.html" class="programmar" style="font-size: 30px; flex: 160px;">PRO: GRAMMAR</a>
             <div style="flex: 1"></div>
             <header-login-container>
-                <div class=header-login><a href="login.jsp" style="text-decoration-line: none; color: inherit;">로그인</a></div>
+                <div class=header-login>
+	                <a href="login.jsp" style="text-decoration-line: none; color: inherit;">
+	                	<%
+							if (session.getAttribute("loginId") == null)
+								out.println("로그인");
+							else
+								out.println("로그아웃");
+						%>
+	                </a>
+                </div>
             </header-login-container>
         </header>
         <hr style="margin: 0px;">
@@ -55,7 +64,6 @@
                         <img src="https://media.discordapp.net/attachments/957541344832790609/1181286222413451374/image.png?ex=65808186&is=656e0c86&hm=acec74f87f33b3e7342f321ee15058c90db8d56b950067da544f4589436a53c5&=&format=webp&quality=lossless" style="max-width: 20px; height: auto">
                     </a>
                 </div>
-                <hr>
                 <div style="font-size: 20px;">
                 	<%=pvo.getContent()%>
                 </div>
