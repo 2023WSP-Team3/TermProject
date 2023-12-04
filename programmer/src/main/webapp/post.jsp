@@ -65,6 +65,12 @@
 	                for(PostVO pvo:postDAO.getPostList()) {
 	                	if (pvo.getPostId() != Integer.parseInt(request.getParameter("postId")))
 	                		continue;
+	                	session.setAttribute("postTitle", pvo.getTitle().toString());
+	                	session.setAttribute("postContent", pvo.getContent().toString());
+	                	if (pvo.getCodeContent() != null)
+	                		session.setAttribute("postCodeContent", pvo.getCodeContent().toString());
+	                	else
+	                		session.setAttribute("postCodeContent", "");
 				%>
                 <div style="display: flex;">
                     <h1 style="font-size: 40px; color: #00C3B2;margin-right: 10px;">Q.</h1>
@@ -80,17 +86,17 @@
                 </div>
                 <div style="display: flex">
                     <div style="flex: 1;"></div>
+                	<%
+                		if (session.getAttribute("userId") != null) {
+                			if(Integer.parseInt(session.getAttribute("userId").toString()) == pvo.getUserId()) {
+                	%>
+                	<button class="small-btn" type="button" onclick="location.href='post_editor.jsp?isEdit=true'" style="margin-right: 10px;">수정</button>
+                    <button class="small-btn" type="button" onclick="location.href='post_editor.jsp'" style="margin-right: 10px; background-color: #ff5252;">삭제</button>
+                    <%
+                			}
+                		}
+                    %>
                     <a href="question_list.html" style="text-align: center;">
-	                	<%
-	                		if (session.getAttribute("userId") != null) {
-	                			if(Integer.parseInt(session.getAttribute("userId").toString()) == pvo.getUserId()) {
-	                	%>
-	                	<button class="small-btn" type="button" onclick="location.href='post_editor.html?isEdit=true'" style="margin-right: 10px;">수정</button>
-	                    <button class="small-btn" type="button" onclick="location.href='post_editor.html'" style="margin-right: 10px; background-color: #ff5252;">삭제</button>
-	                    <%
-	                			}
-	                		}
-	                    %>
                         <img src="https://media.discordapp.net/attachments/957541344832790609/1181286222413451374/image.png?ex=65808186&is=656e0c86&hm=acec74f87f33b3e7342f321ee15058c90db8d56b950067da544f4589436a53c5&=&format=webp&quality=lossless" style="max-width: 20px; height: auto">
                     </a>
                 </div>
@@ -107,8 +113,6 @@
                 	}
                 %>
                 <hr>
-                <% session.setAttribute("postId", pvo.getPostId());
-                %>
                 <form name="comment" action="AddComment" method="post">
                     <h1 style="font-size: 30px; margin-right: 10px;">댓글 작성</h1>
                     <textarea name="cmt_content" class="text-field" type="text" style="width: 100%; height: 180px; vertical-align: top;"></textarea>
