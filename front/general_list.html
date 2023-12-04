@@ -29,9 +29,12 @@
             <div class="list-form">
                 <h1 style="margin-bottom: 0%;">일반게시판</h1>
                 <b style="margin-top: 0%; color: #888888;"><br></b>
-                <form action="general_list.html?" mehtod="GET">
-                    <input type="text" name="search">
-                </form>
+                <div style="display: flex;">
+                    <form action="general_list.html?" mehtod="GET" style="flex: 1;">
+                        <input type="text" name="search" style="vertical-align: middle;">
+                    </form>
+                    <button class="small-btn" type="button" onclick="location.href='post_editor.html'">게시글 작성</button>
+                </div>
                 <hr style="margin: 20px 0px;">
                 <div style="display: flex;">
                     <div style="flex: 2;"></div>

@@ -33,15 +33,18 @@
             <div class="list-form">
                 <h1 style="margin-bottom: 0%;">질문게시판</h1>
                 <b style="margin-top: 0%; color: #888888;">사람들에게 자유롭게 질문하세요!<br></b>
-                <form action="question_list.html?" mehtod="GET">
-                    <select name="lang_tag" size="1">
-                        <option value="none">언어를 선택해주세요</option>
-                        <option value="c">C</option>
-                        <option value="c++">C++</option>
-                        <option value="java">JAVA</option>
-                    </select>
-                    <input type="text" name="search">
-                </form>
+                <div style="display: flex;">
+	                <form action="question_list.html?" mehtod="GET">
+	                    <select name="lang_tag" size="1" style="vertical-align: middle;">
+	                        <option value="none">언어를 선택해주세요</option>
+	                        <option value="c">C</option>
+	                        <option value="c++">C++</option>
+	                        <option value="java">JAVA</option>
+	                    </select>
+	                    <input type="text" name="search" style="vertical-align: middle;">
+	                </form>
+                    <button class="small-btn" type="button" onclick="location.href='post_editor.html'">게시글 작성</button>
+                </div>
                 <hr style="margin: 20px 0px;">
                 <div style="display: flex;">
                     <div style="flex: 2;"></div>
