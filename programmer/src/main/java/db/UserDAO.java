@@ -38,7 +38,7 @@ public class UserDAO {
 	
 	public void add(UserVO ab) {
 		connect();
-		String sql = "insert into user values(?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into user values (?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);

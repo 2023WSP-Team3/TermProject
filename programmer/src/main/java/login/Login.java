@@ -34,6 +34,7 @@ public class Login extends HttpServlet {
 		response.setContentType("text/html;char=UTF-8");
 		String id = request.getParameter("id");
 		String pw = request.getParameter("password");
+		
 		if(loginHandle.login(id, pw) == 2) {
 			HttpSession session = request.getSession();
 		    session.setAttribute("id", id);
