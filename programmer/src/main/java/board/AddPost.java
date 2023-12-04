@@ -45,6 +45,7 @@ public class AddPost extends HttpServlet {
 		int userId = (int)session.getAttribute("userId");
 		String selectedCategory = request.getParameter("category");
 		int categoryValue = 0;
+		String name = (String)session.getAttribute("name");
 		String addr = "";
 	    if ("question".equals(selectedCategory)) {
 	        categoryValue = 1;
@@ -66,6 +67,7 @@ public class AddPost extends HttpServlet {
         pvo.setReport(0);
         pvo.setLang(request.getParameter("lang_tag"));
         pvo.setCodeContent(request.getParameter("code_content"));
+        pvo.setName(name);
         
         pdao.add(pvo);
         

@@ -57,7 +57,7 @@
                     awergb<br>
                 </div>
                 <hr>
-                <form name="comment" action="AddComment.java" method="post">
+                <form name="comment" action="AddComment" method="post">
                     <h1 style="font-size: 30px; margin-right: 10px;">댓글 작성</h1>
                     <textarea name="cmt_content" class="text-field" type="text" style="width: 100%; height: 180px; vertical-align: top;"></textarea>
                     <button class="submit-btn" value="UPLOAD COMMENT" type="submit" style="width: auto;"><b>댓글 작성</b></button>

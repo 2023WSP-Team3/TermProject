@@ -81,8 +81,8 @@
 		                    <a href="post.jsp?<%=vo.getPostId()%>" style="flex: 10; text-align: center; color: #666666;">
 		                    	<b><%=vo.getTitle()%></b>
 		                    </a>
-		                    <b style="flex: 2; text-align: center; color: #666666">언어</b>
-		                    <b style="flex: 2; text-align: center; color: #666666"><%=vo.getUserId()%></b>
+		                    <b style="flex: 2; text-align: center; color: #666666"><%=vo.getLang() %>></b>
+		                    <b style="flex: 2; text-align: center; color: #666666"><%=vo.getName()%></b>
 		                    <b style="flex: 2; text-align: center; color: #666666"><%=vo.getPostDate()%></b>
 		                    <b style="flex: 2; text-align: center; color: #666666">조회수</b>
 		                </div>

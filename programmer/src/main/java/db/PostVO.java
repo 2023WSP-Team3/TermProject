@@ -63,6 +63,12 @@ public class PostVO {
 	public void setCodeContent(String codeContent) {
 		this.codeContent = codeContent;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	private int postId;
 	private int userId;
 	private String title;
@@ -73,5 +79,5 @@ public class PostVO {
 	private int report;
 	private String lang;
 	private String codeContent;
-	
+	private String name;
 }

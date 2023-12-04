@@ -40,14 +40,14 @@ public class AddComment extends HttpServlet {
 				CommentVO vo = commentList.get(i);
 				commentId = vo.getCommentId() + 1;
 			}
-		}
+		}		
 		java.sql.Date currentDate = new java.sql.Date(System.currentTimeMillis());
 		HttpSession session = request.getSession();
 		int userId = (int)session.getAttribute("userId");
 		String username = (String)session.getAttribute("name");
-		int postId = (int)session.getAttribute("postId");
+		int postId = (int)session.getAttribute("postId"); // 변경필요
 		avo.setCommentId(commentId);
-        avo.setPostId(postId);
+        avo.setPostId(1);
         avo.setUserId(userId);
         avo.setCommentText(request.getParameter("cmt_content"));
         avo.setCommentDate(currentDate);

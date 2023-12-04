@@ -13,7 +13,7 @@
     </head>
     <body>
         <header>
-            <a href="main.html" class="programmar" style="font-size: 30px; flex: 160px;">PRO: GRAMMAR</a>
+            <a href="main.jsp" class="programmar" style="font-size: 30px; flex: 160px;">PRO: GRAMMAR</a>
             <div style="flex: 1"></div>
             <header-login-container>
                 <div class=header-login><a href="login.jsp" style="text-decoration-line: none; color: inherit;">로그인</a></div>
@@ -26,7 +26,7 @@
                 <input type="password" name="password" class="text-field" placeholder="비밀번호">
                 <input type="submit" value="SIGN IN" class="submit-btn">
                 <div class="links">
-                    <a href="signup_category.html">SIGN UP</a>
+                    <a href="signup_category.jsp">SIGN UP</a>
                 </div>
             </form>
             <%
