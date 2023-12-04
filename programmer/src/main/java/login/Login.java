@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpSession;
 
 import login.CheckMember;
 import login.GetMember;
@@ -34,7 +35,9 @@ public class Login extends HttpServlet {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("password");
 		if(loginHandle.login(id, pw) == 2) {
-			request.getSession().setAttribute("id", id);
+			HttpSession session = request.getSession();
+		    session.setAttribute("id", id);
+		    
 			RequestDispatcher view = request.getRequestDispatcher("main.html");
 			view.forward(request,  response);
 		}

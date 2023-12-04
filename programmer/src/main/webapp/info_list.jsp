@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="db.*" %>
 <!DOCTYPE html>
-<jsp:useBean id="postDAO" class="java.db.PostDAO" scope="application"/>
+<jsp:useBean id="postDAO" class="db.PostDAO" scope="application"/>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -50,10 +50,10 @@
 						<hr>
 		                <div style="display: flex;">
 		                    <div style="flex: 2;"></div>
-		                    <b style="flex: 10; text-align: center; color: #666666;"><%vo.getTitle()%></b>
+		                    <b style="flex: 10; text-align: center; color: #666666;"><%=vo.getTitle()%></b>
 		                    <b style="flex: 2; text-align: center; color: #666666">언어</b>
-		                    <b style="flex: 2; text-align: center; color: #666666"><%vo.getUserId()%></b>
-		                    <b style="flex: 2; text-align: center; color: #666666"><%vo.getPossDate()%></b>
+		                    <b style="flex: 2; text-align: center; color: #666666"><%=vo.getUserId()%></b>
+		                    <b style="flex: 2; text-align: center; color: #666666"><%=vo.getPostDate()%></b>
 		                    <b style="flex: 2; text-align: center; color: #666666">조회수</b>
 		                </div>
                 <%

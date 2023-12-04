@@ -13,7 +13,7 @@ public class PostDAO {
 	PreparedStatement pstmt = null;
 	String jdbc_driver = "com.mysql.cj.jdbc.Driver";
 	String jdbc_url = 
-"jdbc:mysql://localhost/web?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding="
+"jdbc:mysql://localhost/webdata?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding="
 + "utf8&useSSL=false&serverTimezone=UTC";
 	
 	void connect() {
@@ -52,7 +52,7 @@ public class PostDAO {
 			pstmt.setInt(2,  ab.getUserId());
 			pstmt.setString(3, ab.getTitle());
 			pstmt.setString(4,  ab.getContent());
-			pstmt.setDate(5,  (Date) ab.getPossDate());
+			pstmt.setDate(5,  (Date) ab.getPostDate());
 			pstmt.setInt(6, ab.getCategoryId());
 			
 			pstmt.executeUpdate();
@@ -78,7 +78,7 @@ public class PostDAO {
 				ab.setUserId(rs.getInt("UserID"));
 				ab.setTitle(rs.getString("Title"));
 				ab.setContent(rs.getString("Content"));
-				ab.setPossDate(rs.getDate("PossDate"));
+				ab.setPostDate(rs.getDate("PossDate"));
 				ab.setCategoryId(rs.getInt("CategoryID"));
 				
 				postList.add(ab);

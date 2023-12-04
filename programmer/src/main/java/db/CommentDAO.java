@@ -13,7 +13,7 @@ public class CommentDAO {
 	PreparedStatement pstmt = null;
 	String jdbc_driver = "com.mysql.cj.jdbc.Driver";
 	String jdbc_url = 
-"jdbc:mysql://localhost/web?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding="
+"jdbc:mysql://localhost/webdata?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding="
 + "utf8&useSSL=false&serverTimezone=UTC";
 	
 	void connect() {
