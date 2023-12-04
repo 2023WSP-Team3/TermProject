@@ -103,12 +103,49 @@ public class PostDAO {
 		return postList;
 	}
 	
-	public void view_update(int value, int postId) {
+	public void update (String title, String content, Date postDate, String Lang, String CodeContent, int postId) {
 		connect();
-	    String sql = "UPDATE post SET Views = ? WHERE PostId = ?";
+	    String sql = "UPDATE post SET Title = ? AND Content = ? AND PostDate = ? AND Lang = ? AND CodeContent = ? WHERE PostId = ?";
 	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-	        pstmt.setInt(1, value);
-	        pstmt.setInt(2, postId);
+	        pstmt.setString(1, title);
+	        pstmt.setString(2, content);
+	        pstmt.setDate(3, postDate);
+	        pstmt.setString(4, Lang);
+	        pstmt.setString(5, CodeContent);
+	        pstmt.setInt(6, postId);
+	        
+
+	        pstmt.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        disconnect();
+	    }
+	}
+	
+	public void delete(int postId) {
+	    connect();
+
+	    String sql = "DELETE FROM post WHERE PostID = ?";
+
+	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+	        pstmt.setInt(1, postId);
+
+	        pstmt.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        disconnect();
+	    }
+	}
+	
+	public void increaseReportCount(int postId) {
+	    connect();
+
+	    String sql = "UPDATE post SET Report = Report + 1 WHERE postID = ?";
+
+	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+	        pstmt.setInt(1, postId);
 
 	        pstmt.executeUpdate();
 	    } catch (SQLException e) {

@@ -52,7 +52,7 @@
 	                    </select>
 	                    <input type="text" name="search" style="vertical-align: middle; width: 400px;">
 	                </form>
-                    <button class="small-btn" type="button" onclick="location.href='post_editor.jsp?isEdit=false'">게시글 작성</button>
+                    <button class="small-btn" type="button" onclick="location.href='post_editor.html'">게시글 작성</button>
                 </div>
                 <hr style="margin: 20px 0px;">
                 <div style="display: flex;">
