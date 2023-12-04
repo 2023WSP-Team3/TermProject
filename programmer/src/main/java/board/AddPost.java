@@ -64,6 +64,7 @@ public class AddPost extends HttpServlet {
         pvo.setCategoryId(categoryValue);
         pvo.setViews(0);
         pvo.setReport(0);
+        pvo.setLang(request.getParameter("lang_tag"));
         pvo.setCodeContent(request.getParameter("code_content"));
         
         pdao.add(pvo);

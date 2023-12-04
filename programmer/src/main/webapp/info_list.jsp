@@ -16,16 +16,7 @@
             <a href="main.html" class="programmar" style="font-size: 30px; flex: 160px;">PRO: GRAMMAR</a>
             <div style="flex: 1"></div>
             <header-login-container>
-                <div class=header-login>
-	                <a href="login.jsp" style="text-decoration-line: none; color: inherit;">
-	                	<%
-							if (session.getAttribute("loginId") == null)
-								out.println("로그인");
-							else
-								out.println("로그아웃");
-						%>
-	                </a>
-                </div>
+                <div class=header-login><a href="login.jsp" style="text-decoration-line: none; color: inherit;">로그인</a></div>
             </header-login-container>
         </header>
         <hr style="margin: 0px;">
@@ -43,7 +34,7 @@
                 <b style="margin-top: 0%; color: #888888;"><br></b>
                 <div style="display: flex;">
                     <form action="general_list.jsp?" mehtod="GET" style="flex: 1;">
-                        <input type="text" name="search" style="vertical-align: middle; width: 400px;">
+                        <input type="text" name="search" style="vertical-align: middle;">
                     </form>
                     <button class="small-btn" type="button" onclick="location.href='post_editor.jsp'">게시글 작성</button>
                 </div>
@@ -64,8 +55,8 @@
 						<hr>
 		                <div style="display: flex;">
 		                    <div style="flex: 2;"></div>
-		                    <a href="post.jsp?<%=vo.getPostId()%>" style="flex: 10; text-align: center; color: #666666;">
-		                    	<b><%=vo.getTitle()%></b>
+		                    <a href="post.jsp?<%=vo.getPostId()%>" style="flex: 10;">
+		                    	<b style="text-align: center; color: #666666;"><%=vo.getTitle()%></b>
 		                    </a>
 		                    <b style="flex: 2; text-align: center; color: #666666">언어</b>
 		                    <b style="flex: 2; text-align: center; color: #666666"><%=vo.getUserId()%></b>

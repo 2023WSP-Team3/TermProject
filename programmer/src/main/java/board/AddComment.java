@@ -44,14 +44,14 @@ public class AddComment extends HttpServlet {
 		java.sql.Date currentDate = new java.sql.Date(System.currentTimeMillis());
 		HttpSession session = request.getSession();
 		int userId = (int)session.getAttribute("userId");
-		String loginId = (String)session.getAttribute("loginId");
+		String username = (String)session.getAttribute("name");
 		int postId = (int)session.getAttribute("postId");
 		avo.setCommentId(commentId);
         avo.setPostId(postId);
         avo.setUserId(userId);
         avo.setCommentText(request.getParameter("password"));
         avo.setCommentDate(currentDate);
-        avo.setUserName(loginId);
+        avo.setUserName(username);
         
         adao.add(avo);
         

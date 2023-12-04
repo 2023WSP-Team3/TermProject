@@ -34,22 +34,23 @@ public class Login extends HttpServlet {
 		response.setContentType("text/html;char=UTF-8");
 		String id = request.getParameter("id");
 		String pw = request.getParameter("password");
-		List<Integer> loginhandle = loginHandle.login(id, pw);
-		if(loginhandle.get(0) ==  2) {
+		List<String> loginhandle = loginHandle.login(id, pw);
+		if(loginhandle.get(0).equals("2")){
 			HttpSession session = request.getSession();
 		    session.setAttribute("loginId", id);
-		    session.setAttribute("userId", loginhandle.get(1));
-			RequestDispatcher view = request.getRequestDispatcher("main.jsp");
+		    session.setAttribute("userId", Integer.parseInt(loginhandle.get(1)));
+		    session.setAttribute("name", loginhandle.get(2));
+			RequestDispatcher view = request.getRequestDispatcher("main.html");
 			view.forward(request,  response);
 		}
-		else if(loginhandle.get(0) == 0){
+		else if(loginhandle.get(0).equals("0")){
 			HttpSession session = request.getSession();
 			String err_msg = "아이디를 찾을 수 없습니다";
 			session.setAttribute("err_msg", err_msg);
 			
 			response.sendRedirect("login.jsp");
 		}
-		else if(loginhandle.get(0) == 1){
+		else if(loginhandle.get(0).equals("1")){
 			HttpSession session = request.getSession();
 			String err_msg = "비밀번호가 일치하지 않습니다";
 			session.setAttribute("err_msg", err_msg);
