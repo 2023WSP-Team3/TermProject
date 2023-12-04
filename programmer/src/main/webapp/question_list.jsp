@@ -56,11 +56,15 @@
                 </div>
                 <%
 					for(PostVO vo:postDAO.getPostList()) {
+						if (vo.getCategoryId() != 2)
+							continue;
 				%>
 						<hr>
 		                <div style="display: flex;">
 		                    <div style="flex: 2;"></div>
-		                    <b style="flex: 10; text-align: center;"><%=vo.getTitle()%></b>
+		                    <a href="post.jsp?<%=vo.getPostId()%>" style="flex: 10;">
+		                    	<b style="text-align: center; color: #666666;"><%=vo.getTitle()%></b>
+		                    </a>
 		                    <b style="flex: 2; text-align: center;">언어</b>
 		                    <b style="flex: 2; text-align: center;"><%=vo.getUserId()%></b>
 		                    <b style="flex: 2; text-align: center;"><%=vo.getPostDate()%></b>

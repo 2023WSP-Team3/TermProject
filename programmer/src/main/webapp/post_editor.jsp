@@ -43,6 +43,8 @@
                 </div>
                 <h1>포스트 내용</h1>
                 <textarea class="text-field" name="content" placeholder="본문 내용을 입력해주세요." style="height: 400px"></textarea>
+                <h1>코드</h1>
+                <textarea class="text-field" name="content" placeholder="본문 내용을 입력해주세요." style="height: 200px"></textarea>
                 <button class="submit-btn" value="UPLOAD POST" type="submit"><b>포스트 업로드</b></button>
             </div>
         </form>
