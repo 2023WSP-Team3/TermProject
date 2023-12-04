@@ -51,6 +51,18 @@ public class PostVO {
 	public void setReport(int report) {
 		this.report = report;
 	}
+	public String getLang() {
+		return lang;
+	}
+	public void setLang(String lang) {
+		this.lang = lang;
+	}
+	public String getCodeContent() {
+		return codeContent;
+	}
+	public void setCodeContent(String codeContent) {
+		this.codeContent = codeContent;
+	}
 	private int postId;
 	private int userId;
 	private String title;
@@ -59,5 +71,7 @@ public class PostVO {
 	private int categoryId;
 	private int views;
 	private int report;
-
+	private String lang;
+	private String codeContent;
+	
 }

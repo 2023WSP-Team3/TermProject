@@ -44,7 +44,7 @@ public class CommentDAO {
 	
 	public void add(CommentVO ab) {
 		connect();
-		String sql = "insert into comment values(?,?,?,?,?)";
+		String sql = "insert into comment values(?,?,?,?,?,?)";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);

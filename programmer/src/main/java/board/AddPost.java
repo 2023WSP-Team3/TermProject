@@ -28,6 +28,7 @@ public class AddPost extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;char=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         PostVO pvo = new PostVO();
         PostDAO pdao = new PostDAO();
         ArrayList<PostVO> postList = pdao.getPostList();
@@ -63,6 +64,7 @@ public class AddPost extends HttpServlet {
         pvo.setCategoryId(categoryValue);
         pvo.setViews(0);
         pvo.setReport(0);
+        pvo.setCodeContent(request.getParameter("code_content"));
         
         pdao.add(pvo);
         

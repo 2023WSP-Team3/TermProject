@@ -28,6 +28,7 @@ public class AddComment extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;char=UTF-8");
+		request.setCharacterEncoding("UTF-8");
 		
 		CommentVO avo = new CommentVO();
 		CommentDAO adao = new CommentDAO();

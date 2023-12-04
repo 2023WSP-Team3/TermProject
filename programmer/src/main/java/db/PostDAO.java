@@ -44,7 +44,7 @@ public class PostDAO {
 	
 	public void add(PostVO ab) {
 		connect();
-		String sql = "insert into post values(?,?,?,?,?,?)";
+		String sql = "insert into post values (?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -56,6 +56,8 @@ public class PostDAO {
 			pstmt.setInt(6, ab.getCategoryId());
 			pstmt.setInt(7, ab.getViews());
 			pstmt.setInt(8, ab.getReport());
+			pstmt.setString(9, ab.getLang());
+			pstmt.setString(10, ab.getCodeContent());
 			
 			pstmt.executeUpdate();
 			
@@ -84,6 +86,8 @@ public class PostDAO {
 				ab.setCategoryId(rs.getInt("CategoryID"));
 				ab.setViews(rs.getInt("Views"));
 				ab.setReport(rs.getInt("Report"));
+				ab.setLang(rs.getString("Lang"));
+				ab.setCodeContent(rs.getString("CodeContent"));
 				
 				postList.add(ab);
 			}
