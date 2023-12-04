@@ -39,7 +39,7 @@ public class Login extends HttpServlet {
 			HttpSession session = request.getSession();
 		    session.setAttribute("loginId", id);
 		    session.setAttribute("userId", loginhandle.get(1));
-			RequestDispatcher view = request.getRequestDispatcher("main.html");
+			RequestDispatcher view = request.getRequestDispatcher("main.jsp");
 			view.forward(request,  response);
 		}
 		else if(loginhandle.get(0) == 0){

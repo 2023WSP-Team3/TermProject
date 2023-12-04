@@ -15,7 +15,16 @@
             <a href="main.html" class="programmar" style="font-size: 30px; flex: 160px;">PRO: GRAMMAR</a>
             <div style="flex: 1"></div>
             <header-login-container>
-                <div class=header-login><a href="login.jsp" style="text-decoration-line: none; color: inherit;">로그인</a></div>
+                <div class=header-login>
+	                <a href="login.jsp" style="text-decoration-line: none; color: inherit;">
+	                	<%
+							if (session.getAttribute("loginId") == null)
+								out.println("로그인");
+							else
+								out.println("로그아웃");
+						%>
+	                </a>
+                </div>
             </header-login-container>
         </header>
         <hr style="margin: 0px;">
@@ -44,7 +53,7 @@
                 <h1>포스트 내용</h1>
                 <textarea class="text-field" name="content" placeholder="본문 내용을 입력해주세요." style="height: 400px"></textarea>
                 <h1>코드</h1>
-                <textarea class="text-field" name="content" placeholder="본문 내용을 입력해주세요." style="height: 200px"></textarea>
+                <textarea class="text-field" name="code_content" placeholder="본문 내용을 입력해주세요." style="height: 200px"></textarea>
                 <button class="submit-btn" value="UPLOAD POST" type="submit"><b>포스트 업로드</b></button>
             </div>
         </form>
