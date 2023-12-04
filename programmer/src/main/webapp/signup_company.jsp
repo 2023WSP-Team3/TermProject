@@ -20,7 +20,7 @@
     </head>
     <body>
         <header>
-            <a href="main.html" class="programmar" style="font-size: 30px; flex: 160px;">PRO: GRAMMAR</a>
+            <a href="main.jsp" class="programmar" style="font-size: 30px; flex: 160px;">PRO: GRAMMAR</a>
             <div style="flex: 1"></div>
             <header-login-container>
                 <div class=header-login>

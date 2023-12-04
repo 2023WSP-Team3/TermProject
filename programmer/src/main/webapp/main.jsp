@@ -12,7 +12,7 @@
     </head>
     <body>
         <header>
-            <a href="main.html" class="programmar" style="font-size: 30px; flex: 160px;">PRO: GRAMMAR</a>
+            <a href="main.jsp" class="programmar" style="font-size: 30px; flex: 160px;">PRO: GRAMMAR</a>
             <div style="flex: 1"></div>
             <header-login-container>
                 <div class=header-login>
@@ -32,7 +32,7 @@
             <div style="margin-left: 10%; margin-right: 10%; vertical-align: middle;">
                 <p style="color: #FFFFFF; font-size: 80px; font-family: 'Koulen', sans-serif; margin: 0px;">PRO: GRAMMAR</p>
                 <p style="color: #FFFFFF; font-size: 40px; margin: 0px;">코드 문법의 전문가로 향하는</p>
-                <p style="color: #FFFFFF; font-size: 40px; margin: 0px;">우리 모두의 경유지</p>
+                <p style="color: #FFFFFF; font-size: 40px; margin: 0px;">우리 모두의 경유지</p>
             </div>
         </div>
         <div class="sub-banner">

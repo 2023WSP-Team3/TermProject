@@ -14,7 +14,7 @@
     </head>
     <body>
         <header>
-            <a href="main.html" class="programmar" style="font-size: 30px; flex: 160px;">PRO: GRAMMAR</a>
+            <a href="main.jsp" class="programmar" style="font-size: 30px; flex: 160px;">PRO: GRAMMAR</a>
             <div style="flex: 1"></div>
             <header-login-container>
                 <div class=header-login>
@@ -65,19 +65,26 @@
                 </div>
                 <%
 					for(PostVO vo:postDAO.getPostList()) {
-						if (vo.getCategoryId() != 2)
+						if (vo.getCategoryId() != 1)
 							continue;
 				%>
 						<hr>
 		                <div style="display: flex;">
-		                    <div style="flex: 2;"></div>
+		                    <div style="flex: 2; text-align: center;">
+		                    	<b>
+		                    	<%
+		                    		if (vo.getCategoryId() == 1)
+		                    			out.println("질문");
+		                    	%>
+		                    	</b>
+		                    </div>
 		                    <a href="post.jsp?<%=vo.getPostId()%>" style="flex: 10; text-align: center; color: #666666;">
 		                    	<b><%=vo.getTitle()%></b>
 		                    </a>
-		                    <b style="flex: 2; text-align: center;">언어</b>
-		                    <b style="flex: 2; text-align: center;"><%=vo.getUserId()%></b>
-		                    <b style="flex: 2; text-align: center;"><%=vo.getPostDate()%></b>
-		                    <b style="flex: 2; text-align: center;">조회수</b>
+		                    <b style="flex: 2; text-align: center; color: #666666;">언어</b>
+		                    <b style="flex: 2; text-align: center; color: #666666;"><%=vo.getUserId()%></b>
+		                    <b style="flex: 2; text-align: center; color: #666666;"><%=vo.getPostDate()%></b>
+		                    <b style="flex: 2; text-align: center; color: #666666;">조회수</b>
 		                </div>
                 <%
 					}
