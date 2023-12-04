@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import db.*;
-import java.util.Date;
+import java.sql.Date;
+import java.util.List;
 @WebServlet("/Singup_mentor")
 public class Singup_mentor extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -27,18 +28,27 @@ public class Singup_mentor extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;char=UTF-8");
 		UserVO avo = new UserVO();
-		
-		avo.setUserId(1);
+		UserDAO adao = new UserDAO();
+		List<UserVO> userList = adao.getUserList();
+		int size = userList.size();
+		int userid = 0;
+		for (int i=0; i<size; i++) {
+			if (i == size-1) {
+				UserVO vo = userList.get(i);
+				userid = vo.getUserId() + 1;
+			}
+		}
+		java.sql.Date currentDate = new java.sql.Date(System.currentTimeMillis());
+		avo.setUserId(userid);
         avo.setUserName(request.getParameter("name"));
         avo.setEmail(request.getParameter("portfolio"));
         avo.setPassword(request.getParameter("password"));
-        avo.setExperiencePoint(1);
-        avo.setProfilePicture("dd");
-        avo.setRegistrationDate(new Date());
-        avo.setUserState(request.getParameter("mentor"));
+        avo.setExperiencePoint(100);
+        avo.setProfilePicture("mentor.jpg");
+        avo.setRegistrationDate(currentDate);
+        avo.setUserState("멘토");
         avo.setLoginId(request.getParameter("id"));
 
-        UserDAO adao = new UserDAO();
         adao.add(avo);
         
         RequestDispatcher view = request.getRequestDispatcher("login.jsp");

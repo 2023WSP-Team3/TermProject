@@ -16,7 +16,7 @@
             <a href="main.html" class="programmar" style="font-size: 30px; flex: 160px;">PRO: GRAMMAR</a>
             <div style="flex: 1"></div>
             <header-login-container>
-                <div class=header-login><a href="login.html" style="text-decoration-line: none; color: inherit;">로그인</a></div>
+                <div class=header-login><a href="login.jsp" style="text-decoration-line: none; color: inherit;">로그인</a></div>
             </header-login-container>
         </header>
         <hr style="margin: 0px;">
@@ -24,19 +24,19 @@
             <div class="sidebar-form">
                 <h1 style="font-size: 40px">사이드바</h1>
                 <ul>
-                    <li><a href="question_list.html" style="text-decoration-line: none; color: inherit;"><h2>질문게시판</h2></a></li>
-                    <li><a href="general_list.html" style="text-decoration-line: none; color: inherit;"><h2>일반게시판</h2></a></li>
-                    <li><a href="info_list.html" style="text-decoration-line: none; color: #00C3B2;"><h2>정보게시판</h2></a></li>
+                    <li><a href="question_list.jsp" style="text-decoration-line: none; color: inherit;"><h2>질문게시판</h2></a></li>
+                    <li><a href="general_list.jsp" style="text-decoration-line: none; color: inherit;"><h2>일반게시판</h2></a></li>
+                    <li><a href="info_list.jsp" style="text-decoration-line: none; color: #00C3B2;"><h2>정보게시판</h2></a></li>
                 </ul>
             </div>
             <div class="list-form">
                 <h1 style="margin-bottom: 0%;">정보게시판</h1>
                 <b style="margin-top: 0%; color: #888888;"><br></b>
                 <div style="display: flex;">
-                    <form action="general_list.html?" mehtod="GET" style="flex: 1;">
+                    <form action="general_list.jsp?" mehtod="GET" style="flex: 1;">
                         <input type="text" name="search" style="vertical-align: middle;">
                     </form>
-                    <button class="small-btn" type="button" onclick="location.href='post_editor.html'">게시글 작성</button>
+                    <button class="small-btn" type="button" onclick="location.href='post_editor.jsp'">게시글 작성</button>
                 </div>
                 <hr style="margin: 20px 0px;">
                 <div style="display: flex;">

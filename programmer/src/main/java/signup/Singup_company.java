@@ -1,7 +1,8 @@
 package signup;
 
 import java.io.IOException;
-import java.util.Date;
+import java.sql.Date;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -29,18 +30,27 @@ public class Singup_company extends HttpServlet {
 		response.setContentType("text/html;char=UTF-8");
 		
 		UserVO avo = new UserVO();
-		
-		avo.setUserId(1);
+		UserDAO adao = new UserDAO();
+		List<UserVO> userList = adao.getUserList();
+		int size = userList.size();
+		int userid = 0;
+		for (int i=0; i<size; i++) {
+			if (i == size-1) {
+				UserVO vo = userList.get(i);
+				userid = vo.getUserId() + 1;
+			}
+		}
+		java.sql.Date currentDate = new java.sql.Date(System.currentTimeMillis());
+		avo.setUserId(userid);
         avo.setUserName(request.getParameter("name"));
         avo.setEmail(request.getParameter("company_name"));
         avo.setPassword(request.getParameter("password"));
-        avo.setExperiencePoint(1);
-        avo.setProfilePicture("dd");
-        avo.setRegistrationDate(new Date());
-        avo.setUserState(request.getParameter("company"));
+        avo.setExperiencePoint(100);
+        avo.setProfilePicture("company.jpg");
+        avo.setRegistrationDate(currentDate);
+        avo.setUserState("일반유저");
         avo.setLoginId(request.getParameter("id"));
-
-        UserDAO adao = new UserDAO();
+        
         adao.add(avo);
         
         RequestDispatcher view = request.getRequestDispatcher("login.jsp");

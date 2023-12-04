@@ -25,16 +25,16 @@
             <div class="sidebar-form">
                 <h1 style="font-size: 40px">사이드바</h1>
                 <ul>
-                    <li><a href="question_list.html" style="text-decoration-line: none; color: #00C3B2;"><h2>질문게시판</h2></a></li>
-                    <li><a href="general_list.html" style="text-decoration-line: none; color: inherit;"><h2>일반게시판</h2></a></li>
-                    <li><a href="info_list.html" style="text-decoration-line: none; color: inherit;"><h2>정보게시판</h2></a></li>
+                    <li><a href="question_list.jsp" style="text-decoration-line: none; color: #00C3B2;"><h2>질문게시판</h2></a></li>
+                    <li><a href="general_list.jsp" style="text-decoration-line: none; color: inherit;"><h2>일반게시판</h2></a></li>
+                    <li><a href="info_list.jsp" style="text-decoration-line: none; color: inherit;"><h2>정보게시판</h2></a></li>
                 </ul>
             </div>
             <div class="list-form">
                 <h1 style="margin-bottom: 0%;">질문게시판</h1>
                 <b style="margin-top: 0%; color: #888888;">사람들에게 자유롭게 질문하세요!<br></b>
                 <div style="display: flex;">
-	                <form action="question_list.html?" mehtod="GET">
+	                <form action="question_list.jsp?" mehtod="GET">
 	                    <select name="lang_tag" size="1" style="vertical-align: middle;">
 	                        <option value="none">언어를 선택해주세요</option>
 	                        <option value="c">C</option>
@@ -43,7 +43,7 @@
 	                    </select>
 	                    <input type="text" name="search" style="vertical-align: middle;">
 	                </form>
-                    <button class="small-btn" type="button" onclick="location.href='post_editor.html'">게시글 작성</button>
+                    <button class="small-btn" type="button" onclick="location.href='post_editor.jsp'">게시글 작성</button>
                 </div>
                 <hr style="margin: 20px 0px;">
                 <div style="display: flex;">
