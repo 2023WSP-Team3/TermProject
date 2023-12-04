@@ -39,11 +39,25 @@ public class PostVO {
 	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
 	}
+	public int getViews() {
+		return views;
+	}
+	public void setViews(int views) {
+		this.views = views;
+	}
+	public int getReport() {
+		return report;
+	}
+	public void setReport(int report) {
+		this.report = report;
+	}
 	private int postId;
 	private int userId;
 	private String title;
 	private String content;
 	private Date possDate;
 	private int categoryId;
+	private int views;
+	private int report;
 
 }

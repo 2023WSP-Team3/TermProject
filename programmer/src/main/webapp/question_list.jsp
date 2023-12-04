@@ -17,7 +17,7 @@
             <a href="main.html" class="programmar" style="font-size: 30px; flex: 160px;">PRO: GRAMMAR</a>
             <div style="flex: 1"></div>
             <header-login-container>
-                <div class=header-login><a href="login.html" style="text-decoration-line: none; color: inherit;">로그인</a></div>
+                <div class=header-login><a href="login.jsp" style="text-decoration-line: none; color: inherit;">로그인</a></div>
             </header-login-container>
         </header>
         <hr style="margin: 0px;">

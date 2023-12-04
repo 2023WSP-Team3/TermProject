@@ -54,6 +54,8 @@ public class PostDAO {
 			pstmt.setString(4,  ab.getContent());
 			pstmt.setDate(5,  (Date) ab.getPostDate());
 			pstmt.setInt(6, ab.getCategoryId());
+			pstmt.setInt(7, ab.getViews());
+			pstmt.setInt(8, ab.getReport());
 			
 			pstmt.executeUpdate();
 			
@@ -80,6 +82,8 @@ public class PostDAO {
 				ab.setContent(rs.getString("Content"));
 				ab.setPostDate(rs.getDate("PossDate"));
 				ab.setCategoryId(rs.getInt("CategoryID"));
+				ab.setViews(rs.getInt("Views"));
+				ab.setReport(rs.getInt("Report"));
 				
 				postList.add(ab);
 			}

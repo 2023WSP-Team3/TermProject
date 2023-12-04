@@ -53,6 +53,7 @@ public class CommentDAO {
 			pstmt.setInt(3,  ab.getUserId());
 			pstmt.setString(4,  ab.getCommentText());
 			pstmt.setDate(5,  (Date) ab.getCommentDate());
+			pstmt.setString(6, ab.getUserName());
 			
 			pstmt.executeUpdate();
 			
@@ -78,7 +79,7 @@ public class CommentDAO {
 				ab.setUserId(rs.getInt("UserID"));
 				ab.setCommentText(rs.getString("CommentText"));
 				ab.setCommentDate(rs.getDate("CommentDate"));
-				
+				ab.setUserName(rs.getString("Username"));
 				
 				commentList.add(ab);
 			}
