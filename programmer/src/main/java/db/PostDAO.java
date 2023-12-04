@@ -155,4 +155,20 @@ public class PostDAO {
 	    }
 	}
 	
+	public void increaseViewsCount(int postId) {
+	    connect();
+
+	    String sql = "UPDATE post SET Views = Views + 1 WHERE postID = ?";
+
+	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+	        pstmt.setInt(1, postId);
+
+	        pstmt.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        disconnect();
+	    }
+	}
+	
 }

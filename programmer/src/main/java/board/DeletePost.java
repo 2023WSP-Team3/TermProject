@@ -32,7 +32,16 @@ public class DeletePost extends HttpServlet {
 		PostDAO dao = new PostDAO();
 		dao.delete(postId);
 		
-		RequestDispatcher view = request.getRequestDispatcher("post.jsp");
+		String selectedCategory = request.getParameter("category");
+		String addr = "";
+	    if ("question".equals(selectedCategory)) {
+	        addr = "question_list.jsp";
+	    } else if ("normal".equals(selectedCategory)) {
+	        addr = "general_list.jsp";
+	    } else if ("information".equals(selectedCategory)) {
+	        addr = "info_list.jsp";
+	    }
+		RequestDispatcher view = request.getRequestDispatcher("main.jsp");
 		view.forward(request,  response);
 	}
 

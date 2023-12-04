@@ -88,11 +88,14 @@
                 <div style="display: flex">
                     <div style="flex: 1;"></div>
                 	<%
+                		postDAO.increaseViewsCount(Integer.parseInt(request.getParameter("postId")));
                 		if (session.getAttribute("userId") != null) {
                 			if(Integer.parseInt(session.getAttribute("userId").toString()) == pvo.getUserId()) {
                 	%>
                 	<button class="small-btn" type="button" onclick="location.href='post_editor.jsp?isEdit=true'" style="margin-right: 10px;">수정</button>
-                    <button class="small-btn" type="button" onclick="location.href='post_editor.jsp'" style="margin-right: 10px; background-color: #ff5252;">삭제</button>
+                	<form action="DeletePost" method="post">
+                    	<input class="small-btn" type="submit" value="삭제" style="margin-right: 10px; background-color: #ff5252;">
+                	</form>
                     <%
                 			}
                 		}

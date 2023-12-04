@@ -84,7 +84,7 @@
 		                    <b style="flex: 2; text-align: center; color: #666666;">언어</b>
 		                    <b style="flex: 2; text-align: center; color: #666666;"><%=vo.getUserId()%></b>
 		                    <b style="flex: 2; text-align: center; color: #666666;"><%=vo.getPostDate()%></b>
-		                    <b style="flex: 2; text-align: center; color: #666666;">조회수</b>
+		                    <b style="flex: 2; text-align: center; color: #666666;"><%=vo.getViews()%></b>
 		                </div>
                 <%
 					}

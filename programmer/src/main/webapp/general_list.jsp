@@ -84,7 +84,7 @@
 		                    <b style="flex: 2; text-align: center; color: #666666"><%=vo.getLang() %>></b>
 		                    <b style="flex: 2; text-align: center; color: #666666"><%=vo.getName()%></b>
 		                    <b style="flex: 2; text-align: center; color: #666666"><%=vo.getPostDate()%></b>
-		                    <b style="flex: 2; text-align: center; color: #666666">조회수</b>
+		                    <b style="flex: 2; text-align: center; color: #666666"><%=vo.getViews()%></b>
 		                </div>
                 <%
 					}
